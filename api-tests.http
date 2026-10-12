@@ -1,0 +1,70 @@
+### 1. Register Customer
+POST http://localhost:8081/api/v1/customers/register
+Content-Type: application/json
+
+{
+  "fullName": "Nguyen Van A",
+  "email": "a@gmail.com",
+  "password": "123456",
+  "address": "Ha Noi"
+}
+
+### 2. Customer not found -> 404
+GET http://localhost:8081/api/v1/customers/99
+
+### 3. Login
+PUT http://localhost:8081/api/v1/customers/login
+Content-Type: application/json
+
+{
+  "email": "a@gmail.com",
+  "password": "123456"
+}
+
+### 4. Create Product
+POST http://localhost:8082/api/v1/products
+Content-Type: application/json
+
+{
+  "name": "Laptop Asus",
+  "price": 20000000,
+  "stockQuantity": 10,
+  "description": "Laptop van phong"
+}
+
+### 5. Product validation -> 400
+POST http://localhost:8082/api/v1/products
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -500,
+  "stockQuantity": -1,
+  "description": "Invalid"
+}
+
+### 6. Get Products
+GET http://localhost:8082/api/v1/products
+
+### 7. Create Order
+POST http://localhost:8083/api/v1/orders
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "productId": 1,
+  "quantity": 2
+}
+
+### 8. Invalid quantity -> 400
+POST http://localhost:8083/api/v1/orders
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "productId": 1,
+  "quantity": 0
+}
+
+### 9. Get Order
+GET http://localhost:8083/api/v1/orders/1

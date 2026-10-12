@@ -1,0 +1,204 @@
+{
+  "info": {
+    "name": "Ecommerce 3 Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customer - Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Nguyen Van A\",\n  \"email\": \"a@gmail.com\",\n  \"password\": \"123456\",\n  \"address\": \"Ha Noi\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/customers/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "customers",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Customer - Get 99 (404)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8081/api/v1/customers/99",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "customers",
+            "99"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Customer - Login",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"a@gmail.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/customers/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "customers",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Product - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Laptop Asus\",\n  \"price\": 20000000,\n  \"stockQuantity\": 10,\n  \"description\": \"Laptop van phong\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Product - Validation 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\",\n  \"price\": -500,\n  \"stockQuantity\": -1,\n  \"description\": \"Invalid\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Order - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": 1,\n  \"productId\": 1,\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/v1/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "v1",
+            "orders"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Order - Invalid quantity 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": 1,\n  \"productId\": 1,\n  \"quantity\": 0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/v1/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "v1",
+            "orders"
+          ]
+        }
+      }
+    }
+  ]
+}
